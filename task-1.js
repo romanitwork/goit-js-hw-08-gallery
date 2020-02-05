@@ -30,7 +30,7 @@ list.appendChild(fragment);
 list.addEventListener("click", onCLick);
 function onCLick(e) {
   lightbox.classList.add("is-open");
-  lightbox.querySelector(".lightbox__image").src = e.target.dataset.source;
+  document.querySelector(".lightbox__image").src = e.target.dataset.source;
 }
 
 button.addEventListener("click", buttonClose);
