@@ -5,7 +5,7 @@ import images from "./gallery-items.js";
 const fragment = document.createDocumentFragment();
 const list = document.querySelector(".gallery");
 const lightbox = document.querySelector(".lightbox");
-const button = document.querySelector('.lightbox__button');
+const button = document.querySelector(".lightbox__button");
 
 images.forEach(imagelist => {
   list.insertAdjacentHTML(
@@ -27,13 +27,13 @@ images.forEach(imagelist => {
 });
 list.appendChild(fragment);
 
-list.addEventListener("click", onCLick)
+list.addEventListener("click", onCLick);
 function onCLick(e) {
   lightbox.classList.add("is-open");
   lightbox.querySelector(".lightbox__image").src = e.target.dataset.source;
 }
 
-button.addEventListener('click', buttonClose);
-function buttonClose(e){
-    lightbox.classList.remove("is-open");
+button.addEventListener("click", buttonClose);
+function buttonClose(e) {
+  lightbox.classList.remove("is-open");
 }
