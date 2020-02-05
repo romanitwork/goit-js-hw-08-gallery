@@ -8,9 +8,11 @@ const lightbox = document.querySelector(".lightbox");
 const button = document.querySelector(".lightbox__button");
 
 images.forEach(imagelist => {
-  list.insertAdjacentHTML(
+  const newLi = document.createElement("li");
+  newLi.classList.add("gallery__item");
+  newLi.insertAdjacentHTML(
     "beforeend",
-    `<li class="gallery__item">
+    `
     <a
       class="gallery__link"
       href='#'
@@ -22,18 +24,23 @@ images.forEach(imagelist => {
         alt='${imagelist.description}'
       />
     </a>
-  </li>`
+  `
   );
+  fragment.appendChild(newLi);
 });
 list.appendChild(fragment);
 
 list.addEventListener("click", onCLick);
 function onCLick(e) {
+  if (e.target.classList.contains('gallery__image')) {
   lightbox.classList.add("is-open");
   document.querySelector(".lightbox__image").src = e.target.dataset.source;
 }
-
+}
 button.addEventListener("click", buttonClose);
 function buttonClose(e) {
+  if (!e.target.classList.contains('lightbox__image')) {
   lightbox.classList.remove("is-open");
+  lightbox.removeEventListener('click', buttonClose);
+}
 }
