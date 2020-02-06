@@ -37,15 +37,16 @@ function onCLick(e) {
     lightbox.classList.add("is-open");
     document.querySelector(".lightbox__image").src = e.target.dataset.source;
     document.addEventListener("keydown", escClose);
-    button.addEventListener("click", buttonClose);
+    lightbox.addEventListener("click", buttonClose);
   }
 }
 
 function buttonClose(e) {
+  if (!e.target.classList.contains("lightbox__image")) {
     lightbox.classList.remove("is-open");
     lightbox.removeEventListener("click", buttonClose);
     document.removeEventListener("keydown", escClose);
-  
+  }
 }
 
 function escClose(e) {
