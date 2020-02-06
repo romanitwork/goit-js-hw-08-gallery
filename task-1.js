@@ -45,3 +45,10 @@ function buttonClose(e) {
     lightbox.removeEventListener("click", buttonClose);
   }
 }
+
+document.addEventListener("keydown", escClose);
+function escClose(e) {
+  if (e.keyCode === 27) {
+    lightbox.classList.remove("is-open");
+  }
+}
