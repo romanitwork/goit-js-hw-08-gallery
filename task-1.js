@@ -36,6 +36,7 @@ function onCLick(e) {
   if (e.target.classList.contains("gallery__image")) {
     lightbox.classList.add("is-open");
     document.querySelector(".lightbox__image").src = e.target.dataset.source;
+    document.addEventListener("keydown", escClose);
   }
 }
 button.addEventListener("click", buttonClose);
@@ -46,9 +47,9 @@ function buttonClose(e) {
   }
 }
 
-document.addEventListener("keydown", escClose);
 function escClose(e) {
   if (e.keyCode === 27) {
     lightbox.classList.remove("is-open");
+    document.removeEventListener("keydown", escClose);
   }
 }
