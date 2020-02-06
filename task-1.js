@@ -42,11 +42,10 @@ function onCLick(e) {
 }
 
 function buttonClose(e) {
-  if (!e.target.classList.contains("lightbox__image")) {
     lightbox.classList.remove("is-open");
     lightbox.removeEventListener("click", buttonClose);
     document.removeEventListener("keydown", escClose);
-  }
+  
 }
 
 function escClose(e) {
